@@ -1,3 +1,4 @@
 FROM devopsedu/webapp
 ADD . /var/www/html
-EXPOSE 80
+# This ensures Apache stays running so the container doesn't exit
+CMD ["apache2ctl", "-D", "FOREGROUND"]
